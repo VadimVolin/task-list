@@ -1,0 +1,42 @@
+html,body {
+	height: 100%;
+	width: 100%;
+	background-color: #FEFCCB; /* Для старых браузров */
+	background-repeat: no-repeat;
+	background: linear-gradient(to  top, #00CBFF, #11D6ED, #00FFEF, #FFFFD0, #FFFF48, #FEA342);
+}
+
+.title_app { 
+	text-align: center;
+	width: 100%;
+}
+
+.app {
+	padding: 10px 5px 20px;
+	padding: 10px 0;
+	height: 100%;
+}
+
+.list-title {
+	text-align: center;
+	margin: 0 auto;
+}
+
+.list_item {
+	background-color: #EEC;
+}
+
+.item-row {
+	width: 100%;
+}
+
+.item-value {
+	color: #455;
+	width: 100%;
+	word-wrap:break-word;
+}
+
+.pagination_btn {
+	text-align: center;
+	width: 100%;
+}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>TaskListOnVueJS</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+	
+	<div class="app">
+		<div class="container">
+			<header>
+				<div class="row title_app">
+					<div class="col-12">
+						<h1>{{title}}</h1>
+					</div>
+				</div>
+			</header>
+			<main>
+				<div class="row">
+					<div class="col-12 title_app">
+						<div   v-show="show">
+							<p>{{message}}</p>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<form action="" class="form">
+							<div class="input-group mb-3">
+								<input type="text" v-model="inputTask"  aria-describedby="basic-addon2" class="form-control" id="itemForm" placeholder="Add task"  @keyup.enter="addItem()" autofocus autocomplete="off" onkeypress="if(event.keyCode == 13) return false;">
+								<div class="input-group-append">
+									<button type="button" class="btn btn-dark btn-outline-secondary" v-on:click="addItem()">
+										{{main_btn}}
+									</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12 list-title">
+						<h4 class="">Your task</h4>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<ul class="list-group">
+							<li v-for="(item, index) in collection" :key="index" class="list_item list-group-item list-group-item-action">
+								<div class="row">
+									<div class="col-10 ">
+										<div class="item-row">
+											<p class="item-value">{{item}}</p>
+										</div>
+									</div>
+									<div class="col-1">
+										<button class="btn btn-warning" type="button" v-on:click="changeItem(item)">
+											<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+										</button>
+									</div>
+									<div class="col-1">
+										<button class="btn btn-danger" type="button" v-on:click="deleteItem(item)">
+											<i class="fa fa-trash" aria-hidden="true"></i>
+										</button>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col-12">
+						<div class="pagination_btn">
+							<div class="btn-toolbar">
+								<div class="btn-group">
+									<button class="btn btn-dark" type="button" v-for="p in pagination.pages" @click.prevent="setPage(p)">
+										{{p}}
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<p class="pagination_btn">Displaying from indexes : {{pagination.startIndex}} to {{pagination.endIndex}}</p>
+					</div>
+				</div>
+			</main>
+		</div>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.min.js"></script>
+	<script src="js/script.js"></script>
+</body>
+</html>
